@@ -1,0 +1,169 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-3xl font-bold text-gray-800 text-center mb-8 animate-slide-up">
+  <i class="fas fa-brain mr-2 text-teal-600"></i>Customer Churn Prediction
+</h1>
+<p class="text-lg text-gray-600 text-center mb-6 animate-slide-up">
+  Enter customer details to forecast their retention status with precision.
+</p>
+
+<form method="POST" class="max-w-3xl mx-auto glass p-8 animate-slide-up">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Numeric Inputs -->
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-credit-card mr-2 text-teal-600"></i>Credit
+        Score</label
+      >
+      <input
+        type="number"
+        name="CreditScore"
+        value="600"
+        class="w-full p-3 rounded glass bg-opacity-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-600"
+      />
+    </div>
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-user mr-2 text-teal-600"></i>Age</label
+      >
+      <input
+        type="number"
+        name="Age"
+        value="30"
+        class="w-full p-3 rounded glass bg-opacity-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-600"
+      />
+    </div>
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-clock mr-2 text-teal-600"></i>Tenure (Years)</label
+      >
+      <input
+        type="number"
+        name="Tenure"
+        value="5"
+        class="w-full p-3 rounded glass bg-opacity-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-600"
+      />
+    </div>
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-wallet mr-2 text-teal-600"></i>Balance Amount</label
+      >
+      <input
+        type="number"
+        name="Balance"
+        value="0"
+        class="w-full p-3 rounded glass bg-opacity-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-600"
+      />
+    </div>
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-boxes mr-2 text-teal-600"></i>Number of
+        Products</label
+      >
+      <input
+        type="number"
+        name="NumOfProducts"
+        value="2"
+        class="w-full p-3 rounded glass bg-opacity-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-600"
+      />
+    </div>
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-money-bill mr-2 text-teal-600"></i>Estimated
+        Salary</label
+      >
+      <input
+        type="number"
+        name="EstimatedSalary"
+        value="50000"
+        class="w-full p-3 rounded glass bg-opacity-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-600"
+      />
+    </div>
+    <!-- One-hot categorical: Geography -->
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-globe mr-2 text-teal-600"></i>Geography</label
+      >
+      <label class="flex items-center text-gray-800 mb-2">
+        <input
+          type="radio"
+          name="Geography"
+          value="France"
+          checked
+          class="mr-2 text-teal-600"
+        />France
+      </label>
+      <label class="flex items-center text-gray-800 mb-2">
+        <input
+          type="radio"
+          name="Geography"
+          value="Germany"
+          class="mr-2 text-teal-600"
+        />Germany
+      </label>
+      <label class="flex items-center text-gray-800">
+        <input
+          type="radio"
+          name="Geography"
+          value="Spain"
+          class="mr-2 text-teal-600"
+        />Spain
+      </label>
+    </div>
+    <!-- One-hot categorical: Gender -->
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-user mr-2 text-teal-600"></i>Gender</label
+      >
+      <label class="flex items-center text-gray-800 mb-2">
+        <input
+          type="radio"
+          name="Gender"
+          value="Female"
+          class="mr-2 text-teal-600"
+        />Female
+      </label>
+      <label class="flex items-center text-gray-800">
+        <input
+          type="radio"
+          name="Gender"
+          value="Male"
+          checked
+          class="mr-2 text-teal-600"
+        />Male
+      </label>
+    </div>
+    <!-- Binary: Has Credit Card -->
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-credit-card mr-2 text-teal-600"></i>Credit Card</label
+      >
+      <label class="flex items-center text-gray-800 mb-2">
+        <input
+          type="checkbox"
+          name="HasCrCard"
+          checked
+          class="mr-2 text-teal-600"
+        />Has Credit Card
+      </label>
+    </div>
+    <!-- Binary: Is Active Member -->
+    <div class="input-field">
+      <label class="block text-gray-800 mb-2"
+        ><i class="fas fa-user-check mr-2 text-teal-600"></i>Active
+        Member</label
+      >
+      <label class="flex items-center text-gray-800 mb-2">
+        <input
+          type="checkbox"
+          name="IsActiveMember"
+          checked
+          class="mr-2 text-teal-600"
+        />Active Member
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="predict-btn mt-6 w-full">
+    <i class="fas fa-rocket mr-2"></i>Predict Now
+  </button>
+</form>
+{% endblock %}
